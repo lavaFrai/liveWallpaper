@@ -1,5 +1,5 @@
 # live wallpaper on python 
-![image](https://github.com/lavaFrai/liveWallpaper/screenshots/Screenshot_1.png?raw=True)
+![image](https://github.com/lavaFrai/liveWallpaper/blob/master/screenshots/Screenshot_1.png?raw=true)
 Проект живых обоев на Python обладающий неплохой модульностью. 
 Отрисовка кадров происходит раз в несколько секунд средствами библиотеки Pillow.
 Для стабильной работы требуется доступ к сети интернет.
