@@ -1,2 +1,4 @@
 wallpaperCash.bmp
-main.spec
+*.spec
+/dist/
+/build/
