@@ -53,27 +53,30 @@ class Main:
             font=font)
 
         # Courses
-        answer = requests.get('https://www.cbr-xml-daily.ru/latest.js')
-        if answer.status_code == 200:
-            usd = 1/json.loads(answer.content)["rates"]["USD"]
-            eur = 1/json.loads(answer.content)["rates"]["EUR"]
+        try:
+            answer = requests.get('https://www.cbr-xml-daily.ru/latest.js')
+            if answer.status_code == 200:
+                usd = 1/json.loads(answer.content)["rates"]["USD"]
+                eur = 1/json.loads(answer.content)["rates"]["EUR"]
 
-            font = ImageFont.truetype("resources\\fonts\\currency.ttf", 64)
-            msg = f"$ {int(usd)}"
-            w2, h2 = draw.textsize(msg, font=font)
-            draw.text(
-                (width / 2 - 350, (height - h2) / 2),
-                msg,
-                (255, 255, 255),
-                font=font)
+                font = ImageFont.truetype("resources\\fonts\\currency.ttf", 64)
+                msg = f"$ {int(usd)}"
+                w2, h2 = draw.textsize(msg, font=font)
+                draw.text(
+                    (width / 2 - 350, (height - h2) / 2),
+                    msg,
+                    (255, 255, 255),
+                    font=font)
 
-            msg = f"€ {int(eur)}"
-            w2, h2 = draw.textsize(msg, font=font)
-            draw.text(
-                (width / 2 - 350, (height - h2) / 2 + h2 + 46),
-                msg,
-                (255, 255, 255),
-                font=font)
+                msg = f"€ {int(eur)}"
+                w2, h2 = draw.textsize(msg, font=font)
+                draw.text(
+                    (width / 2 - 350, (height - h2) / 2 + h2 + 46),
+                    msg,
+                    (255, 255, 255),
+                    font=font)
+        except BaseException:
+            pass
 
         return frame
 

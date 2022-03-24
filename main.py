@@ -3,8 +3,11 @@ import time
 
 from wallpaper import Wallpaper
 from color import Color
+import os
 
 
+os.chdir(os.path.abspath(__file__)[:1 + os.path.abspath(__file__).rindex('\\')])
+print(os.getcwd())
 wallpaper = Wallpaper("resources/backgrounds/bg8.jpeg")
 
 updateTimer = Timer(0.1, wallpaper.update)

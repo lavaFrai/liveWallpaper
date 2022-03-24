@@ -35,7 +35,7 @@ class Wallpaper:
         # self.buffer.thumbnail((self.width, self.height), Image.ANTIALIAS)
         # self.buffer = self.buffer.resize((self.width, self.height))
         if int(time.strftime("%H")) < 21 or int(time.strftime("%H")) > 6:
-            self.buffer = ImageEnhance.Brightness(self.buffer).enhance(0.25)
+            self.buffer = ImageEnhance.Brightness(self.buffer).enhance(0.35)
         else:
             self.buffer = ImageEnhance.Brightness(self.buffer).enhance(0.4)
         self.buffer = self.buffer.filter(ImageFilter.GaussianBlur(radius=200))
@@ -44,8 +44,10 @@ class Wallpaper:
             self.buffer = i.render(self.buffer, self.width, self.height)
             # self.buffer.paste(temp, (0, 0), temp)
 
-        self.buffer.save("wallpaperCash.bmp")
-        ctypes.windll.user32.SystemParametersInfoW(0x0014, 0, os.getcwd() + "\\wallpaperCash.bmp", 2)
+        if not os.path.exists(os.path.expanduser("~\\AppData\\Roaming\\livaWallpaper\\")):
+            os.makedirs(os.path.expanduser("~\\AppData\\Roaming\\livaWallpaper\\"))
+        self.buffer.save(os.path.expanduser("~\\AppData\\Roaming\\livaWallpaper\\wallpaperCash.bmp"))
+        ctypes.windll.user32.SystemParametersInfoW(0x0014, 0, os.path.expanduser("~\\AppData\\Roaming\\livaWallpaper\\wallpaperCash.bmp"), 2)
 
     def update(self):
         for i in self.forms:
