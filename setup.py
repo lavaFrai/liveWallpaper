@@ -65,6 +65,7 @@ def setup(path):
         os.system("shutdown -r -t 0")
     else:
         info("Installation finished, please, reboot PC")
+        input("[Press enter to finish]")
 
 
 if not ctypes.windll.shell32.IsUserAnAdmin():

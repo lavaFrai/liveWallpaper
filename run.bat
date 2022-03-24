@@ -1,2 +1,2 @@
-python -m pip install -r requirements.txt
-python setup.py
+python -m pip install -r "%~dp0requirements.txt"
+python "%~dp0setup.py"
